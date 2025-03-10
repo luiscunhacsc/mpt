@@ -1,0 +1,7 @@
+streamlit>=1.0
+numpy>=1.19
+pandas>=1.1
+matplotlib>=3.2
+yfinance>=0.1.55
+arch>=4.19
+
