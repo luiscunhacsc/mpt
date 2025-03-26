@@ -165,6 +165,13 @@ def calculate_efficient_frontier(returns, cov_matrix, num_assets, points=100):
     
     return np.array(efficient_risk), np.array(efficient_return)
 
+
+def next_question():
+    st.session_state.current_question += 1
+
+
+
+
 # Configure the Streamlit app
 st.set_page_config(layout="wide", page_title="Modern Portfolio Theory Explainer")
 st.title("📊 Understanding Modern Portfolio Theory")
@@ -1255,9 +1262,7 @@ with tab5:
                 st.info(f"**Explanation:** {current_q['explanation']}")
                 st.session_state.questions_answered += 1
                 
-                if st.button("Next Question", key=f"next_{st.session_state.current_question}"):
-                    st.session_state.current_question += 1
-                    st.experimental_rerun()
+            st.button("Next Question", on_click=next_question, key=f"next_{st.session_state.current_question}")
             
         else:
             # Quiz completed
